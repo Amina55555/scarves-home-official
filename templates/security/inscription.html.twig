@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% block carroussel %}{% endblock %}
+
+<section class=" m-auto p-5" id="formContact">
+  <div class="col-11 mx-auto" style="width: 800px">
+    {{ form_start(form) }}
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+{{ form_row(form.username, {'label': 'pseudo','attr': {'placeholder': 'pseudo...'}}) }}
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          {{ form_row(form.firstname, {'label': 'Nom d\'utilisateur','attr': {'placeholder': 'Nom d\'utilisateur...'}}) }}
+        </div>
+        <div class="col-md-6">
+          {{ form_row(form.lastname, {'label': 'prenom d\'utilisateur','attr': {'placeholder': 'prenom d\'utilisateur...'}}) }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          {{ form_row(form.email, {'label': 'Adresse email','attr': {'placeholder': 'Adresse email...'}}) }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form_row(form.confirm_email, {'label': 'Adresse email','attr': {'placeholder': 'Adresse email...'}}) }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          {{ form_row(form.password, {'label': 'Mot de passe','attr': {'placeholder': 'Mot de passe...'}}) }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form_row(form.confirm_password, {'label': ' Confirmation du Mot de passe','attr': {'placeholder': 'Repetez votre Mot de passe...'}}) }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Adresse</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Adresse" required>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="inputZip">Code Postal</label>
+          <input type="number" class="form-control" id="inputZip" placeholder="Code postal" required>
+        </div>
+        
+        <div class="form-group col-md-6">
+          <label for="inputCity">Ville</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Ville" required>
+        </div>
+      </div>
+      </div>
+      <div class="custom-control custom-switch mt-3 d-flex flex-row justify-content-center align-items-center">
+        {{ form_row(form.newsletter) }}
+      <label>Recevoir la newsletter</label>
+      </div>
+      <div class="custom-control custom-switch mt-3 d-flex flex-row justify-content-center align-items-center">
+        <input type="checkbox" class="custom-control-input" id="customSwitch2" required>
+        <label class="custom-control-label" for="customSwitch2">Accepter les <a href="../../public/CGV.pdf"> Conditions Générales d'Utilisation</a></label>
+      </div>
+      <div class="container mt-3 d-flex flex-row justify-content-center align-items-center">
+      <button type="submit" class="btn btn-primary">S'inscrire</button>
+      <a href="connexion" class="ml-5"> Déjà inscrit?</a>
+    </div>
+    {{ form_end(form) }}
+    </div>
+  </section>
+
+
+
+{% endblock %}

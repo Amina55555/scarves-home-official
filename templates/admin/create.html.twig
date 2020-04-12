@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+  
+
+  {% block body %}
+       <h1>création d'un Produit</h1>
+
+{{ form_start(form) }}
+
+
+{{ form_row(form.name, {'attr': {'placeholder': "Nom de l'article"}}) }}
+{{ form_row(form.description, {'attr': {'placeholder': "Description de l'article"}}) }}
+{{ form_row(form.picture, {'attr': {'placeholder': "URL de l'image",'name':'file'}}) }}
+{{ form_row(form.price_ht, {'attr': {'placeholder': "price ht"}}) }}
+{{ form_row(form.Categories) }}
+
+<button type="submit" class="btn btn-success">
+
+ Enregistrer les modifications
+  
+Ajouter un Produit
+
+</button>
+
+{{ form_end(form) }}
+
+  {% endblock %}
+
+ 

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello
+
+{% endblock %}
+{% block carroussel %}{% endblock %}
+
+{% block body %}
+
+	<div class="col-lg-9">
+		<div class="card mt-4">
+			<img class="card-img-top img-fluid" src="{{asset('/telecharger/') ~ products.picture}}" alt="foulard gris argenté bambou">
+			<div class="card-body">
+				<h3 class="card-title">{{products.name}}</h3>
+				<h4>{{products.prixHt}}€</h4>
+				<p class="card-text">{{products.description}}</p>
+				<div class="container d-flex justify-content-between">
+					<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 
+
+        <!-- Your share button code -->
+          <div class="fb-share-button" 
+            data-href="https://www.your-domain.com/your-page.html" 
+            data-layout="icon_link">
+          </div>
+					<a href="#" class="btn btn-outline-success">Ajouter au panier</a>
+				</div>
+			</div>
+		</div>
+		<!-- /.card -->
+
+		<div class="card card-outline-secondary my-4">
+			<div class="card-header">
+				commentaires
+			</div>
+			<div class="card-body">
+				<p>Bonjour
+					                Tout est parfait merci</p>
+				<small class="text-muted">Posted by Nadège g. de Ambres 3/1/17</small>
+				<hr>
+				<p>bon accueil tèl après une difficulté sur le site.Commande prise en compte immédiatement et livraison rapide.Fort satisfaite</p>
+				<small class="text-muted">Posted by Marie-Claire L. de Férel on 5/10/19</small>
+				<hr>
+				<p>De la commande à la livraison parfait, le produit est conforme à la description. Je recommande.</p>
+				<small class="text-muted">Posted by Daniela on 8/1/20</small>
+				<hr>
+				<a href="#" class="btn btn-dark">Leave a Review</a>
+			</div>
+		</div>
+		<!-- /.card -->
+		<div class="alert cvgProduit" role="alert">
+			<a href="">Condition de vente</a>
+		</div>
+	</div>
+	<!-- /.col-lg-9 -->
+
+</div>
+</div>{% endblock %}

@@ -1,0 +1,280 @@
+.mainImage {
+  height: 120%;
+  width: 120%;
+}
+
+.carousel {
+  height: 50%;
+}
+
+.d-block {
+  height: 20em;
+  width: 20em;
+  display: block;
+  margin: auto;
+}
+
+.carousel-item {
+  background-color: black;
+}
+body {
+  background-color: rgb(52, 58, 64);
+}
+
+.pagectt {
+  margin-top: 5em;
+}
+
+.pagectt2 {
+  margin-top: 15em;
+}
+
+.jumbotron {
+  color: white;
+  background-color: rgb(52, 58, 64);
+}
+a {
+  color: white;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+/* FORM TYPOGRAPHY*/
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #39ace7;
+}
+
+input[type="text"]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type="text"]::placeholder {
+  color: #cccccc;
+}
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0;
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+/*   
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after {
+  width: 100%;
+}
+
+/* OTHERS */
+
+*:focus {
+  outline: none;
+}
+
+#icon {
+  width: 60%;
+}
+
+.card:hover {
+  color: black;
+}
+.carousel {
+  background: linear-gradient(#32383e, #d2d4d6);
+}
+.demoObject {
+  -webkit-box-shadow: #fff 0 -1px 4px, 2px 2px 25px 11px rgba(135, 63, 78, 0.49);
+  box-shadow: #fff 0 -1px 4px, 2px 2px 25px 11px rgba(135, 63, 78, 0.49);
+  background: #ecefcf;
+}
+body#tinymce {
+  background: #ffffff;
+}
+body#tinymce {
+  background: #ffffff;
+}
+body#tinymce {
+  background: #ffffff;
+}
+.myCard {
+  -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    2px 2px 25px 11px rgba(117, 55, 68, 0);
+  box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
+    2px 2px 25px 11px rgba(117, 55, 68, 0);
+}
+.cvgProduit {
+  background-color: rgb(155, 116, 116);
+}
+.reduc {
+  width: 100px;
+}
+
+@media only screen and (max-width: 720px) {
+  .mainImage {
+    height: 85%;
+    width: 85%;
+  }
+}
+.imgLOGOfooter {
+  height: 35px;
+  width: 35px;
+}
+addMargin {
+  margin-top: 10em;
+}
