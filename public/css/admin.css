@@ -1,0 +1,58 @@
+.content {
+  background-color:#A97676;
+}
+.main-sidebar {
+  background-color:rgb(204, 198, 198);
+  font-family: Times New Roman ;
+  font-style: italic;
+}
+.content-wrapper{
+  font-family: Times New Roman ;
+  font-style: italic;
+}
+h1{
+  font-weight: bold;
+  
+}
+.list-products{
+  background-color:rgb(204, 198, 198);
+}
+.list-pictures{
+  background-color:rgb(204, 198, 198);
+}
+.list-users{
+  background-color:rgb(204, 198, 198);
+}
+.list-categories{
+  background-color:rgb(204, 198, 198);
+}
+.list-orders{
+  background-color:rgb(204, 198, 198);
+}
+.new-products{
+  background-color:rgb(204, 198, 198);
+}
+.new-pictures{
+  background-color:rgb(204, 198, 198);
+}
+.new-categories{
+  background-color:rgb(204, 198, 198);
+}
+.new-users{
+  background-color:rgb(204, 198, 198);
+}
+.new-orders{
+  background-color:rgb(204, 198, 198);
+}
+.form-actions{
+  background-color:rgb(204, 198, 198);
+}
+.content-footer{
+  background-color:rgb(204, 198, 198);
+}
+p
+{
+  font-family: Times New Roman ;
+  font-style: italic;
+
+}

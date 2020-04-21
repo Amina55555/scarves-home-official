@@ -97,4 +97,9 @@ class Categories
 
         return $this;
     }
+    //function magique pour easyAdmin probleme avec les chaines de caracteres
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

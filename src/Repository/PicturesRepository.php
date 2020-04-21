@@ -11,24 +11,24 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * @method Pictures|null findOneBy(array $criteria, array $orderBy = null)
  * @method Pictures[]    findAll()
  * @method Pictures[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- * @method Pictures[]    findByProd($id)
+//  * @method Pictures[]    findByProd($id)
  */
 class PicturesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Pictures::class);
-    }
-    public function findByProd($id)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.products_id = :val')
-            ->setParameter('val', $id)
-            ->orderBy('p.id', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+     }
+    // public function findByProd($id)
+    // {
+    //     return $this->createQueryBuilder('p')
+    //         ->andWhere('p.products_id = :val')
+    //         ->setParameter('val', $id)
+    //         ->orderBy('p.id', 'ASC')
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
 
     // /**
     //  * @return Pictures[] Returns an array of Pictures objects

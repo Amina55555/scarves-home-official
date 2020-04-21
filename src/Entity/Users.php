@@ -299,5 +299,15 @@ class Users implements UserInterface
     }
     public function getSalt(){}
     public function eraseCredentials(){}
-    
+
+
+    public function __toString()
+    {
+        return $this-> firstname;
+    }
+    public function getAvatar()
+    {
+        $avatar = 'https://www.osteosmose.fr/wp-content/uploads/2016/08/avatar-femme-3.png';
+        return $avatar;
+    }
 }

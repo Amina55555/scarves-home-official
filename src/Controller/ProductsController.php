@@ -22,8 +22,11 @@ class ProductsController extends AbstractController
         $img = $this->getDoctrine();
         $em = $this->getDoctrine();
         $product = $em->getRepository(Products::class)->find($id);
-        $images = $img->getRepository(Pictures::class)->findByProd($id);
-        
+        // $images = $img->getRepository(Pictures::class)->findByProd($id);
+        $images = $img->getRepository(Pictures::class)->findBy(
+            ['Products' => $id],
+            ['id' => 'DESC']
+        );
 
         return $this->render('products/products.html.twig', [
             'product' => $product,

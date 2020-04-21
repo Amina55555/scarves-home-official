@@ -1,0 +1,107 @@
+easy_admin:
+  user:
+        display_name: true
+        display_avatar: true
+        # this method/property must return the string representation of the user
+        # (Symfony will look for getFullName(), isFullName(), ..., and 'fullName' property)
+        name_property_path: 'lastName'
+
+        # this method/property must return the absolute URL of the user avatar image
+        # (Symfony will look for getGravatar(), isGravatar(), ..., and 'gravatar' property)
+        avatar_property_path: 'Avatar'
+  site_name: '<img src="/image/Sh-pm1.png" width="130" />'
+  design:
+    assets:
+      css:
+        - 'css/admin.css'
+    brand_color: '#FAACFA'
+  entities:
+    # List the entity class name you want to manage
+      Products:
+        class: App\Entity\Products 
+        label: 'Produits'
+        form: 
+          title: 'Ajouter un nouveau produit'
+          fields:
+            - { property: 'Picture', type: 'file_upload', type_options: {upload_dir: 'public/telecharger/'}}
+            - id
+            - name
+            - description
+            - priceHt
+            - { property: 'Categories', label: 'Catégories', type: 'entity', type_options: { class: 'App\Entity\Categories', multiple: false, by_reference: false }}
+        list:
+          title: 'Liste Des Produits'
+          fields:
+            - {property: 'Picture', type: 'image', base_path: '/telecharger/'}
+            - id
+            - name
+            - description
+            - priceHt
+            - Categories
+      Pictures:
+        class: App\Entity\Pictures
+        label: 'Liste Des Photos'
+        form:
+          title: 'Ajouter une photo'
+      Categories:
+        class: App\Entity\Categories
+        label: 'Categories'
+        form:
+          title: 'Ajouter une categories'
+      Users:
+        class: App\Entity\Users
+        label: 'Clients'
+        form:
+          title: 'Ajouter un client'
+          fields:
+            - userName
+            - firstName
+            - lastName
+            - { property: 'email', type: 'email'}
+            - { property: 'roles', label: 'Rôles', type: choice, type_options: { expanded: true, multiple: true, choices: {'Utilisateur':'ROLE_USER', 'Administrateur':'ROLE_ADMIN'}}}
+        list:
+          title: 'Liste des Clients'
+          fields:
+            - userName
+            - firstName
+            - lastName
+            - { property: 'email', type: 'email'}
+            - { property: 'roles', type: 'array'}
+
+
+      Orders:
+        class: App\Entity\Orders
+        label: 'Liste Des Commandes'
+        form:
+          title: 'Ajouter une commande'
+        list:
+          title: 'Liste des Commandes'
+      Comments:
+        class: App\Entity\Comments
+        label: 'Listes Des Commentaires'
+        form:
+          title: 'Ajouter un Commentaire'
+        list:
+          title: 'Liste Des Commentaires'
+      Address:
+        class: App\Entity\Address
+        label: 'Listes Des Adresses'
+        form:
+          title: 'Ajouter une Adresse'
+        list:
+          title: 'Liste Des Adresses'
+      Newsletters:
+        class: App\Entity\Newsletters
+        label: 'Listes Des Newsletters'
+        form:
+          title: 'Ajouter une Newsletters'
+        list:
+          title: 'Liste Des Newsletters'
+      LignesOrders:
+        class: App\Entity\LignesOrders
+        label: 'Lignes De Commandes'
+        form:
+          title: 'Ajouter une Ligne De Commande'
+        list:
+          title: 'Lignes De Commandes'             
+
