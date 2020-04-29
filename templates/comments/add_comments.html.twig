@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="col-lg-9">
+		<div class="card mt-4">
+			<img class="card-img-top img-fluid" src="{{asset('/telecharger/') ~ product.picture}}" alt="foulard gris argenté bambou">
+			<div class="card-body">
+				<h3 class="card-title">{{product.name}}</h3>
+				<h4>{{product.priceTtc}}€</h4>
+				<p class="card-text">{{product.description}}</p>
+				<div class="container d-flex justify-content-between">
+					<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 
+
+        <!-- Your share button code -->
+          <div class="fb-share-button" 
+            data-href="https://www.your-domain.com/your-page.html" 
+            data-layout="icon_link">
+          </div>
+					<a href="{{path('cart_Add',{'id': product.id})}}" class="btn btn-outline-success">Ajouter au panier</a>
+				</div>
+			</div>
+		</div>
+		<!-- /.card -->
+  {{ form_start(form)}}
+  <div class="input-group mb-3"> 
+  {{form_widget(form.comment, {'attr': {'placeholder':'Votre commentaire'}})}}
+  </div>
+  <button type="submit">Envoyer</button>
+  {{ form_end(form)}}
+{% endblock %}

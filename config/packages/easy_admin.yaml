@@ -27,7 +27,7 @@ easy_admin:
             - id
             - name
             - description
-            - priceHt
+            - priceTtc
             - { property: 'Categories', label: 'Catégories', type: 'entity', type_options: { class: 'App\Entity\Categories', multiple: false, by_reference: false }}
         list:
           title: 'Liste Des Produits'
@@ -36,7 +36,7 @@ easy_admin:
             - id
             - name
             - description
-            - priceHt
+            - priceTtc
             - Categories
       Pictures:
         class: App\Entity\Pictures
@@ -67,8 +67,6 @@ easy_admin:
             - lastName
             - { property: 'email', type: 'email'}
             - { property: 'roles', type: 'array'}
-
-
       Orders:
         class: App\Entity\Orders
         label: 'Liste Des Commandes'

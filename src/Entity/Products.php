@@ -32,7 +32,7 @@ class Products
     /**
      * @ORM\Column(type="float")
      */
-    private $price_ht;
+    private $price_ttc;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -95,14 +95,14 @@ class Products
         return $this;
     }
 
-    public function getPriceHt(): ?float
+    public function getPriceTtc(): ?float
     {
-        return $this->price_ht;
+        return $this->price_ttc;
     }
 
-    public function setPriceHt(float $price_ht): self
+    public function setPriceTtc(float $price_ttc): self
     {
-        $this->price_ht = $price_ht;
+        $this->price_ttc = $price_ttc;
 
         return $this;
     }
@@ -225,6 +225,6 @@ class Products
     }
     public function __toString()
 {
-    return $this->picture;
+    return $this->name;
 }
 }

@@ -18,7 +18,7 @@ class AddProductType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('price_ht', IntegerType::class)
+            ->add('price_ttc', IntegerType::class)
             ->add('picture', FileType::class,[
                 'attr' => ['name'=>'file', 
                             ]

@@ -2,15 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\Users;
+use App\Entity\Comments;
 use App\Entity\Pictures;
 use App\Entity\Products;
 use App\Entity\Categories;
+use App\Form\CommentsType;
 use App\Form\AddProductType;
+use App\Repository\ProductsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Repository\ProductsRepository;
 
 class ProductsController extends AbstractController
 {
@@ -19,6 +24,12 @@ class ProductsController extends AbstractController
      */
     public function product($id) 
     {
+        $comments = $this->getDoctrine()->getRepository(Comments::class)->findBy(
+            ['products'=> $id],
+            ['date'=> 'DESC'],
+            15, 
+            0
+        );
         $img = $this->getDoctrine();
         $em = $this->getDoctrine();
         $product = $em->getRepository(Products::class)->find($id);
@@ -30,7 +41,9 @@ class ProductsController extends AbstractController
 
         return $this->render('products/products.html.twig', [
             'product' => $product,
-            'images' => $images
+            'images' => $images,
+            'comments' => $comments
+
         ]);
     }
 
@@ -55,6 +68,31 @@ class ProductsController extends AbstractController
         ]);
 
     }
-    
-   
+    /**
+     * @Route("/add_comments/{id}", name="add_comments")
+     */   
+    public function add_comments($id, Request $request, EntityManagerInterface $entityManager, UserInterface $user)
+    {
+    $addComment = new Comments(); 
+    $form = $this->createForm(CommentsType::class, $addComment);
+    $form->handleRequest($request);
+
+    $prodId = $this->getDoctrine()->getRepository(Products::class)->find($id);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $addComment->setDate(new \DateTime());
+        $addComment->setUsers($user);
+        
+        $addComment->setProducts($prodId);
+
+        $entityManager->persist($addComment);
+        $entityManager->flush();
+        return $this->redirectToRoute('products', ['id'=>$id] );
+    } 
+
+
+    return $this->render('comments/add_comments.html.twig',[
+        'form' => $form ->createView(),
+        'product' => $prodId
+    ]);  
+    } 
 }

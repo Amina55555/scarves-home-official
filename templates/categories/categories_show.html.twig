@@ -15,13 +15,13 @@
 					<h4 class="card-title acces-rapide">
 						<a href="/products/{{product.id}}">{{product.name}}</a>
 					</h4>
-					<h5>{{product.priceHt}}€</h5>
+					<h5>{{product.priceTtc}}€</h5>
 
 					<p class="card-text">{{product.description|slice (0, 50)}}</p>
 				</div>
 				<div class="card-footer d-flex justify-content-around">
 					<small class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-					<a href="#" class="btn btn-outline-dark">Ajouter au panier</a>
+					<a href="{{path('cart_Add',{'id': product.id})}}" class="btn btn-outline-dark">Ajouter au panier</a>
 				</div>
 			</div>
 		</div>

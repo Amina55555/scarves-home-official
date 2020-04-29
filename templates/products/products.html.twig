@@ -12,7 +12,7 @@
 			<img class="card-img-top img-fluid" src="{{asset('/telecharger/') ~ product.picture}}" alt="foulard gris argenté bambou">
 			<div class="card-body">
 				<h3 class="card-title">{{product.name}}</h3>
-				<h4>{{product.priceHt}}€</h4>
+				<h4>{{product.priceTtc}}€</h4>
 				<p class="card-text">{{product.description}}</p>
 				<div class="container d-flex justify-content-between">
 					<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 
@@ -22,7 +22,7 @@
             data-href="https://www.your-domain.com/your-page.html" 
             data-layout="icon_link">
           </div>
-					<a href="#" class="btn btn-outline-success">Ajouter au panier</a>
+					<a href="{{path('cart_Add',{'id': product.id})}}" class="btn btn-outline-success">Ajouter au panier</a>
 				</div>
 			</div>
 		</div>
@@ -30,20 +30,22 @@
 
 		<div class="card card-outline-secondary my-4">
 			<div class="card-header">
-				commentaires
+				Commentaires
 			</div>
 			<div class="card-body">
-				<p>Bonjour
-					                Tout est parfait merci</p>
-				<small class="text-muted">Posted by Nadège g. de Ambres 3/1/17</small>
+			{% for comment in comments  %}
+				
+			{# {{dump(comment)}} #}
+				<p>{{comment.comment}}</p>
+				<small class="text-muted">Posté par {{comment.users.firstname}} {{comment.users.lastname}}. le {{comment.date|date('d/m/Y')}}</small>
 				<hr>
-				<p>bon accueil tèl après une difficulté sur le site.Commande prise en compte immédiatement et livraison rapide.Fort satisfaite</p>
-				<small class="text-muted">Posted by Marie-Claire L. de Férel on 5/10/19</small>
-				<hr>
-				<p>De la commande à la livraison parfait, le produit est conforme à la description. Je recommande.</p>
-				<small class="text-muted">Posted by Daniela on 8/1/20</small>
-				<hr>
-				<a href="#" class="btn btn-dark">Leave a Review</a>
+				{% endfor %}
+				{% if app.user %}
+				<a href="{{path('add_comments', {'id': product.id})}}" class="btn btn-dark">Laisser un commentaire</a>
+				{% else %}
+					<a class="btn btn-dark" href="{{path('security_login')}}">Connectez vous pour poster un message</a>	
+				{% endif %}
+				
 			</div>
 		</div>
 		<!-- /.card -->

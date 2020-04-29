@@ -31,6 +31,11 @@ class Comments
      */
     private $products;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $comment;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Comments
     public function setProducts(?Products $products): self
     {
         $this->products = $products;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(string $comment): self
+    {
+        $this->comment = $comment;
 
         return $this;
     }
