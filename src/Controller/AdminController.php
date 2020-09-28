@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminController extends AbstractController
 {
-   /**
+    /**
     * @Route("/admin/newprod", name="products_create")
     */
     public function newprod(ObjectManager $manager, Request $request)
@@ -44,8 +44,8 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('products_create',);
         }
 
-        return $this->render('admin/create.html.twig', [
-               'form' => $form ->createView()   
-           ]);
+            return $this->render('admin/create.html.twig', [
+            'form' => $form ->createView()   
+        ]);
     }
 }

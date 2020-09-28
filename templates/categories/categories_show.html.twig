@@ -6,26 +6,26 @@
 {% block body %}
 
 	<div class="row pagectt mx-5">
-{% for product in products %}
+		{% for product in products %}
 
-		<div class="col-lg-4 col-md-6 mb-4">
-			<div class="card h-100 myCard">
-				<a href="/products/{{product.id}}"><img class="card-img-top " src="{{asset('/telecharger/') ~ product.picture}}" alt="foulard gris argenté bambou"></a>
-				<div class="card-body">
-					<h4 class="card-title acces-rapide">
-						<a href="/products/{{product.id}}">{{product.name}}</a>
-					</h4>
-					<h5>{{product.priceTtc}}€</h5>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="card h-100 myCard">
+					<a href="/products/{{product.id}}"><img class="card-img-top " src="{{asset('/telecharger/') ~ product.picture}}" alt="foulard gris argenté bambou"></a>
+					<div class="card-body">
+						<h4 class="card-title acces-rapide">
+							<a href="/products/{{product.id}}">{{product.name}}</a>
+						</h4>
+						<h5>{{product.priceTtc}}€</h5>
 
-					<p class="card-text">{{product.description|slice (0, 50)}}</p>
-				</div>
-				<div class="card-footer d-flex justify-content-around">
-					<small class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-					<a href="{{path('cart_Add',{'id': product.id})}}" class="btn btn-outline-dark">Ajouter au panier</a>
+						<p class="card-text">{{product.description|slice (0, 50)}}</p>
+					</div>
+					<div class="card-footer d-flex justify-content-around">
+						<small class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+						<a href="{{path('cart_Add',{'id': product.id})}}" class="btn btn-outline-dark">Ajouter au panier</a>
+					</div>
 				</div>
 			</div>
-		</div>
-{% endfor %}
+		{% endfor %}
 	</div>
 	<!-- /.row -->
 	<div class="container">
@@ -34,10 +34,4 @@
 		</div>
 	</div>
 </div>
-<!-- /.col-lg-9 -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /.container -->
-</section>
-{% endblock %}
+<!-- /.col-lg-9 --></div><!-- /.row --></div><!-- /.container --></section>{% endblock %}

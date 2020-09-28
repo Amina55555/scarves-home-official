@@ -3,6 +3,7 @@
 {% block title %}Hello
 
 {% endblock %}
+
 {% block carroussel %}{% endblock %}
 
 {% block body %}
@@ -35,7 +36,7 @@
 			<div class="card-body">
 			{% for comment in comments  %}
 				
-			{# {{dump(comment)}} #}
+			{{dump(comment)}}
 				<p>{{comment.comment}}</p>
 				<small class="text-muted">Posté par {{comment.users.firstname}} {{comment.users.lastname}}. le {{comment.date|date('d/m/Y')}}</small>
 				<hr>

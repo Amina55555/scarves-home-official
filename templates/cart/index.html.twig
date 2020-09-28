@@ -19,10 +19,9 @@
 			</thead>
 			<tbody>
 				{% if panier | length == 0 %}
-					<h5 class="text-center">Panier Vide</h5>
+					<h5 class="text-center">Votre Panier est vide</h5>
 					{% else %}
 {% for item in panier %}
-    
 				<tr>
                     <td><img src="{{asset('/telecharger/')~ item.produit.picture}}" alt=""  width='80'/></td>
 					<th scope="row">{{item.produit.name}}</th>
@@ -30,6 +29,7 @@
                     <td>{{item.produit.priceTtc * item.quantite}}€</td>
 				</tr>
                 {% endfor %}
+                
                 {% endif %}
 			</tbody>
             <tfoot>
@@ -39,6 +39,7 @@
             </tr>
             </tfoot>
 		</table>
+        <a href="/cart_clear" class="btn btn-danger">Vider le Panier</a>
 
 
 	</div>

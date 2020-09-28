@@ -7,6 +7,8 @@ use App\Form\InscriptionType;
 
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mailer\MailerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,12 +19,12 @@ class SecurityController extends AbstractController
     /**
      * @Route("/inscription", name="security_inscription")
      */
-    public function Registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
+    public function Registration(MailerInterface $mailer, Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     {
         $user = new Users();
 
         $form = $this->createForm(InscriptionType::class, $user);
-// récuparation la requette
+           // récuparation la requette
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -36,6 +38,13 @@ class SecurityController extends AbstractController
 
             $manager->persist($user);
             $manager->flush();
+
+            $email=(new Email())
+            ->from('amina.boudjemline@gmail.com')
+            ->to($user->getEmail())
+            ->subject('test mail')
+            ->html('<h1>Hello '.$user->getFirstName().' bienvenue sur ScarvesHome</h1>');
+            $mailer->send($email);
 
             // return $this->redirectToRoute('security_login');
             return $this->render('security/login.html.twig',[
@@ -61,6 +70,6 @@ class SecurityController extends AbstractController
     */
     public function logout(){
 //     return $this->render('security/login.html.twig');
- }
+}
 
 }

@@ -24,15 +24,20 @@ class CartController extends AbstractController
                 'quantite' =>$quantite
             ];
         }
-        $montant=0;
-        foreach($panierVu as $item) {
-            $montant+=$item['produit']->getPriceTtc()* $item['quantite'];
+        if (empty($panierVu)) {
+            $montant = 0;
+        } else{
+            $montant=0;
+            foreach ($panierVu as $item) {
+                $montant+=$item['produit']->getPriceTtc()* $item['quantite'];
+            }
         }
         return $this->render('cart/index.html.twig', [
             'Montant' => $montant,
             'panier'=> $panierVu
         ]);
     }
+
     /**
      * @Route("/cart_Add/{id}", name="cart_Add")
      */
@@ -47,6 +52,16 @@ class CartController extends AbstractController
         $session->set('panier', $panier);
 
         return $this->redirectToRoute('cart');
+    }
+    /**
+     * @Route("/cart_clear", name="cart_clear")
+     */
+    public function cart_clear(SessionInterface $session)
+    {
+        $panier = $session->get('panier',[]);
+        $panier = [];
+        $session->set('panier', $panier);
+        return $this->redirectToRoute('cart'); 
     }
 }
 
